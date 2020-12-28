@@ -1,0 +1,297 @@
+[gd_scene load_steps=52 format=2]
+
+[ext_resource path="res://Player/Player.gd" type="Script" id=1]
+[ext_resource path="res://Resource/Player/Wall_Jump/Wall-Jump-(32x32)_02.png" type="Texture" id=2]
+[ext_resource path="res://Resource/Player/Idle/Idle-(32x32)_07.png" type="Texture" id=3]
+[ext_resource path="res://Resource/Player/Idle/Idle-(32x32)_08.png" type="Texture" id=4]
+[ext_resource path="res://Resource/Player/Idle/Idle-(32x32)_09.png" type="Texture" id=5]
+[ext_resource path="res://Resource/Player/Idle/Idle-(32x32)_03.png" type="Texture" id=6]
+[ext_resource path="res://Resource/Player/Idle/Idle-(32x32)_02.png" type="Texture" id=7]
+[ext_resource path="res://Resource/Player/Idle/Idle-(32x32)_06.png" type="Texture" id=8]
+[ext_resource path="res://Resource/Player/Idle/Idle-(32x32)_11.png" type="Texture" id=9]
+[ext_resource path="res://Resource/Player/Idle/Idle-(32x32)_04.png" type="Texture" id=10]
+[ext_resource path="res://Resource/Player/Idle/Idle-(32x32)_05.png" type="Texture" id=11]
+[ext_resource path="res://Resource/Player/Wall_Jump/Wall-Jump-(32x32)_03.png" type="Texture" id=12]
+[ext_resource path="res://Resource/Player/Run/Run-(32x32)_10.png" type="Texture" id=13]
+[ext_resource path="res://Resource/Player/Double_Jump/Double-Jump-(32x32)_03.png" type="Texture" id=14]
+[ext_resource path="res://Resource/Player/Double_Jump/Double-Jump-(32x32)_06.png" type="Texture" id=15]
+[ext_resource path="res://Resource/Player/Hit/Hit-(32x32)_07.png" type="Texture" id=16]
+[ext_resource path="res://Resource/Player/Double_Jump/Double-Jump-(32x32)_01.png" type="Texture" id=17]
+[ext_resource path="res://Resource/Player/Double_Jump/Double-Jump-(32x32)_05.png" type="Texture" id=18]
+[ext_resource path="res://Resource/Player/Run/Run-(32x32)_04.png" type="Texture" id=19]
+[ext_resource path="res://Resource/Player/Hit/Hit-(32x32)_06.png" type="Texture" id=20]
+[ext_resource path="res://Resource/Player/Hit/Hit-(32x32)_03.png" type="Texture" id=21]
+[ext_resource path="res://Resource/Player/Wall_Jump/Wall-Jump-(32x32)_05.png" type="Texture" id=22]
+[ext_resource path="res://Resource/Player/Run/Run-(32x32)_03.png" type="Texture" id=23]
+[ext_resource path="res://Resource/Player/Run/Run-(32x32)_01.png" type="Texture" id=24]
+[ext_resource path="res://Resource/Player/Run/Run-(32x32)_02.png" type="Texture" id=25]
+[ext_resource path="res://Resource/Player/Hit/Hit-(32x32)_04.png" type="Texture" id=26]
+[ext_resource path="res://Resource/Player/Run/Run-(32x32)_06.png" type="Texture" id=27]
+[ext_resource path="res://Resource/Player/Wall_Jump/Wall-Jump-(32x32)_04.png" type="Texture" id=28]
+[ext_resource path="res://Resource/Player/Double_Jump/Double-Jump-(32x32)_02.png" type="Texture" id=29]
+[ext_resource path="res://Resource/Player/Run/Run-(32x32)_12.png" type="Texture" id=30]
+[ext_resource path="res://Resource/Player/Idle/Idle-(32x32)_10.png" type="Texture" id=31]
+[ext_resource path="res://Resource/Player/Run/Run-(32x32)_05.png" type="Texture" id=32]
+[ext_resource path="res://Resource/Player/Run/Run-(32x32)_07.png" type="Texture" id=33]
+[ext_resource path="res://Resource/Player/Run/Run-(32x32)_09.png" type="Texture" id=34]
+[ext_resource path="res://Resource/Player/Double_Jump/Double-Jump-(32x32)_04.png" type="Texture" id=35]
+[ext_resource path="res://Resource/Player/Wall_Jump/Wall-Jump-(32x32)_01.png" type="Texture" id=36]
+[ext_resource path="res://Resource/Player/Run/Run-(32x32)_11.png" type="Texture" id=37]
+[ext_resource path="res://Resource/Player/Jump/Jump (32x32).png" type="Texture" id=38]
+[ext_resource path="res://Resource/Player/Hit/Hit-(32x32)_02.png" type="Texture" id=39]
+[ext_resource path="res://Resource/Player/Run/Run-(32x32)_08.png" type="Texture" id=40]
+[ext_resource path="res://Resource/Player/Hit/Hit-(32x32)_01.png" type="Texture" id=41]
+[ext_resource path="res://Resource/Player/Hit/Hit-(32x32)_05.png" type="Texture" id=42]
+[ext_resource path="res://Resource/Player/Fall/Fall (32x32).png" type="Texture" id=43]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 24 ), ExtResource( 25 ), ExtResource( 23 ), ExtResource( 19 ), ExtResource( 32 ), ExtResource( 27 ), ExtResource( 33 ), ExtResource( 40 ), ExtResource( 34 ), ExtResource( 13 ), ExtResource( 37 ), ExtResource( 30 ) ],
+"loop": true,
+"name": "Run",
+"speed": 25.0
+}, {
+"frames": [ ExtResource( 38 ), ExtResource( 43 ) ],
+"loop": true,
+"name": "Jump",
+"speed": 25.0
+}, {
+"frames": [ ExtResource( 17 ), ExtResource( 29 ), ExtResource( 14 ), ExtResource( 35 ), ExtResource( 18 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "Double_jump",
+"speed": 25.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 6 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 8 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 31 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 25.0
+}, {
+"frames": [ ExtResource( 41 ), ExtResource( 39 ), ExtResource( 21 ), ExtResource( 26 ), ExtResource( 42 ), ExtResource( 20 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "Hit",
+"speed": 25.0
+}, {
+"frames": [ ExtResource( 36 ), ExtResource( 2 ), ExtResource( 12 ), ExtResource( 28 ), ExtResource( 22 ) ],
+"loop": true,
+"name": "Wall_jump",
+"speed": 25.0
+} ]
+
+[sub_resource type="Animation" id=2]
+resource_name = "Double_jump"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Double_jump" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Hit"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Hit" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6 ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Idle" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Jump"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Jump" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Run" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Wall_jump" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 10, 12 )
+
+[node name="Player" type="KinematicBody2D"]
+position = Vector2( 192, 140 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -16 )
+frames = SubResource( 1 )
+animation = "Hit"
+frame = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
+anims/Double_jump = SubResource( 2 )
+anims/Hit = SubResource( 3 )
+anims/Idle = SubResource( 4 )
+anims/Jump = SubResource( 5 )
+anims/Run = SubResource( 6 )
+anims/Wall_jump = SubResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.561234, -12.352 )
+shape = SubResource( 8 )
+
+[node name="Raycasts" type="Node2D" parent="."]
+
+[node name="RayCast2D" type="RayCast2D" parent="Raycasts"]
+position = Vector2( -5, -2 )
+enabled = true
+cast_to = Vector2( 0, 8 )
+
+[node name="RayCast2D2" type="RayCast2D" parent="Raycasts"]
+position = Vector2( 5, -2 )
+enabled = true
+cast_to = Vector2( 0, 8 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+rotating = true
+current = true
+limit_left = 0
+limit_top = 0
+limit_smoothed = true
+smoothing_enabled = true
