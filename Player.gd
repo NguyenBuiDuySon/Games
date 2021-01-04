@@ -1,31 +1,27 @@
 extends KinematicBody2D
 
 var Velocity = Vector2()
-var Max_speed = 16*16
+var Max_speed = 200
 var Gravity = 2000
 const Slope_stop = 16 # ko bi truoc khi dung o doc
 const Up = Vector2(0,-1) # tro choi tu tren xuong  
 var Jump_velocity = -480
-var Is_grounded
-var Acceleration = 30
-var Jump_was_pressed = false
-var Can_jump = false
-var isGravity = true
-var dub_jumps = 0
-var max_num_dub_jump = 1
+var Is_grounded 
+#var is_jumping = false
+#var is_wall_sliding = false
+var jump_count = 0
+var extraJump = 1
 
-const Wall_slide_acceleration = 10
-const Max_Wall_slide_speed = 120
-
-
+#const Wall_slide_acceleration = 10
+#const Max_wall_slide_speed = 120
 
 onready var animationPlayer = $Sprite/AnimationPlayer
 onready var Raycasts = $Raycasts
 
 func _physics_process(delta: float) -> void:
-#	Velocity.y += Gravity * delta 
+	Velocity.y += Gravity * delta 
 	movement_loop()
-	jump_loop(delta)
+	jump_loop()
 	Velocity = move_and_slide(Velocity,Up,Slope_stop)
 	Is_grounded =  is_on_floor()  # tren san hay ko 
 	_assign_animation()
@@ -43,23 +39,27 @@ func movement_loop():
 			Velocity.x = 0
 	
 	
-func jump_loop(delta):
-	if Input.is_action_pressed("ui_up") && Is_grounded :
-		Velocity.y = Jump_velocity
+func jump_loop():
 
-	if Is_grounded && (Input.is_action_pressed("ui_right")) || Input.is_action_pressed("ui_left"):
-		Can_jump = true
-		dub_jumps = max_num_dub_jump
-		if Velocity.x >=0 :
-			Velocity.y = min(Velocity.y + Wall_slide_acceleration,Max_Wall_slide_speed)
-			animationPlayer.play("Wall_slide")
-		else:
-			Velocity.y += Gravity*delta
-	else:
-		Velocity.y += Gravity*delta 
-		
-	if !Is_grounded && ! is_on_wall():
-		pass
+	if Input.is_action_just_pressed("ui_up") && jump_count < extraJump:
+		Velocity.y = Jump_velocity
+		jump_count +=1
+#		if Is_grounded && Input.is_action_pressed("ui_right"):
+#			Velocity.x = - Max_speed
+#		elif Is_grounded && Input.is_action_pressed("ui_left"):
+#			Velocity.x = Max_speed
+	
+	if Is_grounded:
+		jump_count = 0
+	
+#	if Is_grounded && ( Input.is_action_pressed("ui_right") || Input.is_action_pressed("ui_left")):
+#		if Velocity.y >= 0:
+#			Velocity.y = min(Velocity.y + Wall_slide_acceleration, Max_wall_slide_speed)
+#			animationPlayer.play("Wall_slide")
+#		else:
+#			Velocity.y += Gravity*delta
+#	else: 
+#		Velocity.y += Gravity*delta
 
 func _get_h_weight(): # dieu chinh do tron cua ham lerp
 	return 0.2 if Is_grounded else  0.1
@@ -78,15 +78,22 @@ func _assign_animation():
 		
 		elif Velocity.x > 0:
 			get_node('Sprite').flip_h = false
-			
-	elif Velocity.x != 0:
-		
-		animationPlayer.play('Run')
+	
+	if !Is_grounded && jump_count > 0 :
+		animationPlayer.play("Double_jump")
 		if Velocity.x < 0:
 			get_node('Sprite').flip_h = true
+		
+		elif Velocity.x > 0:
+			get_node('Sprite').flip_h = false
+	
+	elif Velocity.x != 0:
+		animationPlayer.play('Run')
+		if Velocity.x > 0:
+			get_node('Sprite').flip_h = false
 			
 		else:
-			get_node('Sprite').flip_h = false
+			get_node('Sprite').flip_h = true
 			
 	else:
 		animationPlayer.play('Idle')
