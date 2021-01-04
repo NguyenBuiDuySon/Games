@@ -47,19 +47,14 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 17 ), ExtResource( 29 ), ExtResource( 14 ), ExtResource( 35 ), ExtResource( 18 ), ExtResource( 15 ) ],
-"loop": true,
-"name": "Double_jump",
-"speed": 25.0
-}, {
 "frames": [ ExtResource( 7 ), ExtResource( 6 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 8 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 31 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "Idle",
 "speed": 25.0
 }, {
-"frames": [ ExtResource( 36 ), ExtResource( 2 ), ExtResource( 12 ), ExtResource( 28 ), ExtResource( 22 ) ],
+"frames": [ ExtResource( 38 ), ExtResource( 43 ) ],
 "loop": true,
-"name": "Wall_slide",
+"name": "Jump",
 "speed": 25.0
 }, {
 "frames": [ ExtResource( 24 ), ExtResource( 25 ), ExtResource( 23 ), ExtResource( 19 ), ExtResource( 32 ), ExtResource( 27 ), ExtResource( 33 ), ExtResource( 40 ), ExtResource( 34 ), ExtResource( 13 ), ExtResource( 37 ), ExtResource( 30 ) ],
@@ -67,14 +62,19 @@ animations = [ {
 "name": "Run",
 "speed": 25.0
 }, {
+"frames": [ ExtResource( 36 ), ExtResource( 2 ), ExtResource( 12 ), ExtResource( 28 ), ExtResource( 22 ) ],
+"loop": true,
+"name": "Wall_slide",
+"speed": 25.0
+}, {
+"frames": [ ExtResource( 17 ), ExtResource( 29 ), ExtResource( 14 ), ExtResource( 35 ), ExtResource( 18 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "Double_jump",
+"speed": 25.0
+}, {
 "frames": [ ExtResource( 41 ), ExtResource( 39 ), ExtResource( 21 ), ExtResource( 26 ), ExtResource( 42 ), ExtResource( 20 ), ExtResource( 16 ) ],
 "loop": true,
 "name": "Hit",
-"speed": 25.0
-}, {
-"frames": [ ExtResource( 38 ), ExtResource( 43 ) ],
-"loop": true,
-"name": "Jump",
 "speed": 25.0
 } ]
 
@@ -259,6 +259,7 @@ radius = 3.5
 height = 11.5
 
 [node name="Player" type="KinematicBody2D"]
+collision_mask = 9
 script = ExtResource( 1 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
@@ -309,6 +310,36 @@ editor_draw_drag_margin = true
 position = Vector2( 0.686443, -2.09364 )
 rotation = 1.5708
 shape = SubResource( 9 )
+
+[node name="WallRaycast" type="Node2D" parent="."]
+
+[node name="Left_WallRaycast" type="Node2D" parent="WallRaycast"]
+
+[node name="Left_RayCast_1" type="RayCast2D" parent="WallRaycast/Left_WallRaycast"]
+position = Vector2( -5, -17 )
+rotation = 1.5708
+enabled = true
+cast_to = Vector2( 0, 5 )
+
+[node name="Left_RayCast_2" type="RayCast2D" parent="WallRaycast/Left_WallRaycast"]
+position = Vector2( -5, -3 )
+rotation = 1.5708
+enabled = true
+cast_to = Vector2( 0, 5 )
+
+[node name="Right_WallRaycast" type="Node2D" parent="WallRaycast"]
+
+[node name="Right_RayCast_1" type="RayCast2D" parent="WallRaycast/Right_WallRaycast"]
+position = Vector2( 5, -5 )
+rotation = -1.5708
+enabled = true
+cast_to = Vector2( 0, 5 )
+
+[node name="Right_RayCast_2" type="RayCast2D" parent="WallRaycast/Right_WallRaycast"]
+position = Vector2( 5, -17 )
+rotation = -1.5708
+enabled = true
+cast_to = Vector2( 0, 5 )
 [connection signal="body_entered" from="Hitbox" to="." method="_on_Hitbox_body_entered"]
 
 [editable path="Hitbox"]
